@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 7</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+    <hr>
+    <h1 class="titulo">Adivina el personaje de Rick and Morty</h1>
+    <hr>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <input id="adivina" type="text" class="form-control" placeholder="Ingresa el nombre del personaje" aria-label="nombre" aria-describedby="basic-addon1">
+                    <button id="btnConsultar" type="button" class="input-group-text badge bg-danger">Adivinar</button>
+                </div>
+                <center><div id="ListaImg"></div></center>
+                <div>
+                    <center><button id="btnEnviar" class="btn btn-success">Adivinar Otro personaje</button></center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" >
+        import { btnConsultar, btnEnviar, crearImagenDesdeLocalStorage } from './modulo1.js';
+
+        // Asignar manejadores de eventos después de que la página haya cargado
+        window.onload = () => {
+            document.getElementById('btnConsultar').addEventListener('click', btnConsultar);
+            document.getElementById('btnEnviar').addEventListener('click', btnEnviar);
+
+            // Ejecutar la función para cargar la imagen desde localStorage si existe.
+            crearImagenDesdeLocalStorage();
+        };
+    </script>
+</body>
+</html>
